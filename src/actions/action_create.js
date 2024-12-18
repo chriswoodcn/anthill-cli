@@ -3,12 +3,8 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import jsonfile from "jsonfile";
 import ora from "ora";
-import { exec } from "node:child_process";
-import { promisify } from "node:util";
 import shell from "shelljs";
 import chalk from "chalk";
-
-const execAsync = promisify(exec);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -56,9 +52,24 @@ export default async function action_create(name, options) {
   spinner.succeed(chalk.green("Template downloaded successfully"));
   // 安装依赖
   if (template == "anthill-client") {
+    spinner = ora("Detect pkg manager...").start();
+    let pkgManager;
+    if (shell.exec("pnpm --version", { silent: true }).code === 0) {
+      pkgManager = "pnpm";
+    } else if (shell.exec("yarn --version", { silent: true }).code === 0) {
+      pkgManager = "yarn";
+    } else if (shell.exec("npm --version", { silent: true }).code === 0) {
+      pkgManager = "npm";
+    } else {
+      console.error(chalk.red("No pkg manager found"));
+      return;
+    }
+    spinner.succeed(
+      chalk.green("Pkg manager detected successfully, use " + pkgManager)
+    );
     spinner = ora("Installing dependencies...").start();
     shell.cd(resolve(dest, name));
-    shell.exec("npm install", { silent: true });
+    shell.exec(`${pkgManager} install`, { silent: true });
     spinner.succeed(chalk.green("Dependencies installed successfully"));
   }
 }

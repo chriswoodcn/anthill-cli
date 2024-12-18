@@ -26,7 +26,8 @@
     "shelljs": "^0.8.5"
   },
   "devDependencies": {
-    "@types/jsonfile": "^6.1.4"
+    "@types/jsonfile": "^6.1.4",
+    "@types/shelljs": "^0.8.15"
   },
   "config": {
     "supported_project_types": [
