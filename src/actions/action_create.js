@@ -1,7 +1,6 @@
 import { downloadTemplate } from "giget";
 
 const pkg = jsonfile.readFileSync("./package.json", "utf8");
-const repoConfig = pkg.config.repo_config;
 const SUPPORTED_PROJECT_TYPES = pkg.config.supported_project_types;
 const REPO_DIR_PREFIX = pkg.config.repo_dir_prefix;
 
@@ -11,6 +10,7 @@ export default async function action_create(name, options) {
     return;
   }
   const template = options.template;
+  const force = options.force;
   if (!SUPPORTED_PROJECT_TYPES.includes(template)) {
     console.error("project type is not supported");
     return;
@@ -19,5 +19,7 @@ export default async function action_create(name, options) {
   downloadTemplate({
     source: templateProvider,
     dest: name,
+    force,
+    forceClean: force,
   });
 }

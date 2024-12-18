@@ -22,6 +22,12 @@ program
       .choices(SUPPORTED_PROJECT_TYPES)
       .default(DEFAULT_PROJECT_TYPE)
   )
+  .addOption(
+    new Option(
+      "-f, --force",
+      "force to create project while directory already exists"
+    ).default(true)
+  )
   .action((name, options) => {
     action_create(name, options);
   });
