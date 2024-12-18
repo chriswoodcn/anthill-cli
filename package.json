@@ -1,5 +1,5 @@
 {
-  "name": "@chriswood/anthill-cli",
+  "name": "@chriswoodcn/anthill-cli",
   "version": "0.0.1",
   "description": "Anthill Cli for creating multi type anthill projects",
   "main": "src/index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chriswoodcn/anthill-cli"
+    "url": "git+https://github.com/chriswoodcn/anthill-cli.git"
   },
   "scripts": {
     "test": "node src/index.js"

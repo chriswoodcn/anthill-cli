@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 import { Command, Option } from "commander";
 const program = new Command();
-import jsonfile from "jsonfile";
-const pkg = jsonfile.readFileSync("./package.json", "utf8");
+const pkg = await import("./package.json");
 
 const SUPPORTED_PROJECT_TYPES = pkg.config.supported_project_types;
 const DEFAULT_PROJECT_TYPE = pkg.config.default_project_type;

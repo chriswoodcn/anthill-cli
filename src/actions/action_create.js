@@ -1,6 +1,6 @@
 import { downloadTemplate } from "giget";
 
-const pkg = jsonfile.readFileSync("./package.json", "utf8");
+const pkg = await import("../../package.json");
 const SUPPORTED_PROJECT_TYPES = pkg.config.supported_project_types;
 const REPO_DIR_PREFIX = pkg.config.repo_dir_prefix;
 
