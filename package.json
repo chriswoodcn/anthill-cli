@@ -21,7 +21,9 @@
     "commander": "^12.1.0",
     "giget": "^1.2.3",
     "jsonfile": "^6.1.0",
-    "open": "^10.1.0"
+    "open": "^10.1.0",
+    "ora": "^8.1.1",
+    "shelljs": "^0.8.5"
   },
   "devDependencies": {
     "@types/jsonfile": "^6.1.4"

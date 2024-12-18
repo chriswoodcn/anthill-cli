@@ -16,17 +16,22 @@ const pkg = jsonfile.readFileSync(
 const SUPPORTED_PROJECT_TYPES = pkg.config.supported_project_types;
 const DEFAULT_PROJECT_TYPE = pkg.config.default_project_type;
 
-program.version(pkg.version);
+program.version(pkg.version, "-v, --version");
 program.name("anthill-cli");
 program.usage("<command> [options]");
 program.description("anthill-cli is a tool for easy use anthill projects");
 // create命令
+
 program
   .command("create <project-name>")
+  .description(
+    "create a new anthill project, current version support: " +
+      SUPPORTED_PROJECT_TYPES.join(", ")
+  )
   .addOption(
     new Option(
-      "-t, --template <type>",
-      `project type: ${SUPPORTED_PROJECT_TYPES.join(", ")}`
+      "-t, --template <value>",
+      `template name: ${SUPPORTED_PROJECT_TYPES.join(", ")}`
     )
       .choices(SUPPORTED_PROJECT_TYPES)
       .default(DEFAULT_PROJECT_TYPE)
@@ -37,7 +42,9 @@ program
       "force to create project while directory already exists"
     ).default(true)
   )
-  .addOption(new Option("-d, --dest", "file path to save project").default("."))
+  .addOption(
+    new Option("-d, --dest <path>", "file path to save project").default(".")
+  )
   .action((name, options) => {
     actions.action_create(name, options);
   });
