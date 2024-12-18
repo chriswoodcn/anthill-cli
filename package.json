@@ -1,6 +1,6 @@
 {
   "name": "@chriswoodcn/anthill-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Anthill Cli for creating multi type anthill projects",
   "main": "src/index.js",
   "type": "module",
