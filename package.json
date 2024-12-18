@@ -12,7 +12,7 @@
     "url": "git+https://github.com/chriswoodcn/anthill-cli.git"
   },
   "scripts": {
-    "test": "node src/index.js"
+    "dev": "node src/index.js"
   },
   "author": "chriswood",
   "license": "ISC",
@@ -32,6 +32,6 @@
       "anthill-server"
     ],
     "default_project_type": "anthill-client",
-    "repo_dir_prefix": "github:chriswood/anthill-cli#"
+    "repo_dir_prefix": "github:chriswoodcn/anthill-cli#"
   }
 }

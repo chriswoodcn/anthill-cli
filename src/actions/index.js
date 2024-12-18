@@ -1,3 +1,3 @@
-import action_create from "./action_create";
+import action_create from "./action_create.js";
 
-export { action_create };
+export default { action_create };
