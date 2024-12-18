@@ -1,0 +1,15 @@
+{
+  "name": "Name",
+  "type": "Type",
+  "status": "Status",
+  "affiliate": "Affiliate",
+  "version": "Support Version",
+  "key": "Key",
+  "path": "Menu Path",
+  "parent_menu": "Parent Menu",
+  "icon": "Icon",
+  "sort": "Sort",
+  "frame_flag": "Frame Flag",
+  "hidden_flag": "Hidden Flag",
+  "perms": "Permissions"
+}

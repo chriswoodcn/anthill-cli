@@ -1,0 +1,10 @@
+{
+  "account": "Account",
+  "ipaddr": "IP",
+  "login_location": "Login Location",
+  "browser": "Browser",
+  "os": "OS",
+  "login_time": "Login Time",
+  "success": "Success",
+  "error_msg": "Error Message"
+}

@@ -1,0 +1,13 @@
+{
+  "company_name": "Company Name",
+  "status": "Status",
+  "template_key": "Admin Template",
+  "active_time": "Expire Time",
+  "username": "Username",
+  "nickname": "Nickname",
+  "email": "Email",
+  "mobile": "Mobile",
+  "gender": "Gender",
+  "avatar": "Avatar",
+  "com_id": "ComId"
+}
