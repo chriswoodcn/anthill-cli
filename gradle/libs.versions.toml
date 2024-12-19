@@ -1,0 +1,48 @@
+#在versions代码块中，定义用于保存依赖项和插件版本的变量。
+#您可以在后续代码块（libraries和plugins代码块）中使用这些变量
+[versions]
+lib_anthill_infrastructure = "1.2.12"
+plugin_spring_boot = "3.2.12"
+plugin_spring_dependency = "1.1.6"
+plugin_kotlin = "1.9.25"
+
+#在libraries代码块中，定义依赖项
+[libraries]
+#anthill
+anthill-core = { group = "cn.chriswood.anthill", name = "anthill-infrastructure-core", version.ref = "lib_anthill_infrastructure" }
+anthill-json = { group = "cn.chriswood.anthill", name = "anthill-infrastructure-json", version.ref = "lib_anthill_infrastructure" }
+anthill-mybatisflex = { group = "cn.chriswood.anthill", name = "anthill-infrastructure-mybatisflex", version.ref = "lib_anthill_infrastructure" }
+anthill-redis = { group = "cn.chriswood.anthill", name = "anthill-infrastructure-redis", version.ref = "lib_anthill_infrastructure" }
+anthill-mail = { group = "cn.chriswood.anthill", name = "anthill-infrastructure-mail", version.ref = "lib_anthill_infrastructure" }
+anthill-sms = { group = "cn.chriswood.anthill", name = "anthill-infrastructure-sms", version.ref = "lib_anthill_infrastructure" }
+anthill-spring-doc = { group = "cn.chriswood.anthill", name = "anthill-infrastructure-spring-doc", version.ref = "lib_anthill_infrastructure" }
+anthill-web = { group = "cn.chriswood.anthill", name = "anthill-infrastructure-web", version.ref = "lib_anthill_infrastructure" }
+anthill-web-auth = { group = "cn.chriswood.anthill", name = "anthill-infrastructure-web-auth", version.ref = "lib_anthill_infrastructure" }
+anthill-web-annotation = { group = "cn.chriswood.anthill", name = "anthill-infrastructure-web-annotation", version.ref = "lib_anthill_infrastructure" }
+anthill-web-aliyun-oss-sts = { group = "cn.chriswood.anthill", name = "anthill-infrastructure-web-aliyun-oss-sts", version.ref = "lib_anthill_infrastructure" }
+
+#将多个需要同时引入的依赖定义为一个组，使用时直接引入组
+[bundles]
+anthill = [
+    "anthill-core",
+    "anthill-json",
+    "anthill-mybatisflex",
+    "anthill-redis",
+    "anthill-mail",
+    "anthill-sms",
+    "anthill-spring-doc",
+    "anthill-web",
+    "anthill-web-auth",
+    "anthill-web-annotation",
+    "anthill-web-aliyun-oss-sts"
+]
+
+#在plugins代码块中，定义插件
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "plugin_spring_boot" }
+spring-dependency = { id = "io.spring.dependency-management", version.ref = "plugin_spring_dependency" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "plugin_kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "plugin_kotlin" }
+kotlin-noarg = { id = "org.jetbrains.kotlin.plugin.noarg", version.ref = "plugin_kotlin" }
+kotlin-allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "plugin_kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "plugin_kotlin" }
